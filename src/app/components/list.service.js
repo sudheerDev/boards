@@ -75,6 +75,11 @@
       $localForage.setItem('lists', lists);
     };
 
+    this.removeLists = function (boardId) {
+      lists.splice(boardId, 1)
+      $localForage.setItem('lists', lists);
+    };
+
     this.removeCard = function (cardObj) {
       lists[cardObj.boardId][cardObj.listIndex].cards.splice(cardObj.cardIndex, 1);
       $localForage.setItem('lists', lists);

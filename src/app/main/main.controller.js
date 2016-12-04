@@ -37,7 +37,6 @@
             SweetAlert.swal("board created!", "", "success");
             vm.addBoard(inputValue);
           }
-
         } else {
           SweetAlert.close();
         }
@@ -50,7 +49,7 @@
       }, 900);
 
       BoardsService.setBoard(inputValue);
-      vm.init();
+        vm.init();
       ;
     };
 
@@ -67,8 +66,9 @@
       function(isConfirm){
          if (isConfirm) {
             SweetAlert.swal("Board is deleted!", "", "success");
-            BoardsService.removeBoard(index);
-            vm.init();
+            BoardsService.removeBoard(index).then(function () {
+              vm.init();
+            });
          } else {
             SweetAlert.swal("", "Your board is safe :)", "error");
          }

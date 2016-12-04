@@ -6,7 +6,7 @@
     .service('BoardsService', BoardsService);
 
   /** @ngInject */
-  function BoardsService($localForage, $q) {
+  function BoardsService($localForage, $q, ListService) {
     var boards = [];
     var deferred = $q.defer();
     var _this = this;
@@ -52,7 +52,8 @@
 
     this.removeBoard = function (index) {
       boards.splice(index, 1);
-      $localForage.setItem('boards', boards);
+      ListService.removeLists(index);
+      return $localForage.setItem('boards', boards);
     };
 
 
