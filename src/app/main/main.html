@@ -1,0 +1,17 @@
+<div class="container">
+
+  <div class="boardList">
+    <h1 class="boardList__header">My boards <a href="#" class="icon-plus float-right" ng-click="vm.createBoard()">Create new board</a></h1>
+    <ul class="unstyled">
+      <li ng-repeat="board in vm.boardList track by $index">
+        <a class="boardList__link" href="#" ui-sref="board({id: $index})">{{board.name}}</a>
+        <a class="icon-minus-circled boardList__options" ng-click="vm.removeBoard($index)"></a>
+      </li>
+    </ul>
+    <div class="text-center" ng-if="!vm.boardList.length">
+      <p>You have not created any boards yet!</p>
+    </div>
+  </div>
+
+
+</div>

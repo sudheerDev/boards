@@ -1,0 +1,176 @@
+
+html, body {
+  height: 100%;
+}
+.unstyled {
+  list-style: none;
+}
+
+.h100 {
+  height: 100%;
+}
+
+.container {
+  padding: 0px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.boardList {
+  position: relative;
+  max-width: 700px;
+  margin: 10% auto;
+  li {
+    position: relative;
+    &:hover {
+      background-color: #dedede;
+    }
+  }
+}
+
+.boardList__header {
+  padding: 10px;
+
+  .icon-plus {
+    font-size: 20px;
+    line-height: 65px;
+  }
+}
+
+.boardList__link {
+  display: block;
+  height: 40px;
+  padding: 0px 10px;
+  line-height: 40px;
+}
+
+
+.boardList__options {
+  position: absolute;
+  right: 5px;
+  top: 0px;
+  line-height: 40px;
+  font-size: 24px;
+}
+
+
+.sweet-alert {
+  h2 {
+    font-weight: inherit;
+  }
+  button {
+    padding: 1px 32px;
+  }
+}
+
+.cardList {
+  width: 100%;
+  height: 100%;
+}
+
+.cardList__list {
+  width: 100%;
+  white-space: nowrap;
+  height: calc(100% - 75px);
+  margin-bottom: 0px;
+}
+
+.listItem {
+  position: relative;
+  display: inline-block;
+  width: 300px;
+  min-height: 100%;
+  border: 1px solid #dfdfdf;
+  margin: 0px 25px;
+  .noMargin {
+    width: 100%;
+    min-height: 100%;
+    position: absolute;
+  }
+}
+
+
+.cardList__add {
+  position: absolute;
+  right: 30px;
+  top: 0px;
+  line-height: 40px;
+  font-size: 24px;
+}
+
+
+.cardList__remove {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  line-height: 40px;
+  font-size: 24px;
+}
+
+.createCard {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  .button {
+    margin: 5px;
+  }
+}
+
+.createCard__form {
+  padding: 10%;
+}
+
+.vAlign {
+  transform: translateY(-50%);
+  top: 50%;
+  position: relative;
+}
+
+.cards {
+  position: relative;
+  list-style: none;
+  margin: 0px;
+  width: 100%;
+  background: #efefef;
+  margin: 15px;
+  width: 260px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.card__desc {
+  margin-left: 15px;
+}
+
+.noMargin {
+  margin: 0px;
+}
+
+
+@media (min-width: 769px) {
+  .cards {
+    .card__remove {
+      display: none;
+    }
+    &:hover .card__remove {
+      display: block;
+    }
+  }
+  .createCard .vAlign {
+    width: 60%;
+    left: 20%;
+  }
+}
+
+.list__title {
+  font-size: 30px;
+  display: inline-block;
+  /* margin-left: 16px; */
+  width: 100%;
+  background-color: #e0e0e0;
+  padding-left: 10px;
+}

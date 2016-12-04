@@ -1,0 +1,48 @@
+<div class="container h100">
+
+  <div class="cardList">
+    <h1 class="boardList__header"> <a href="#/" class="icon-home"></a>{{vm.board.name}}<a href="javascript:;" class="icon-plus" ng-click="vm.createList()">Create new list</a></h1>
+    <div class="text-center" ng-if="!vm.lists.length">
+      <p>You have not created any boards yet!</p>
+    </div>
+
+    <ul class="unstyled cardList__list">
+      <li class="listItem" ng-repeat="list in vm.lists track by $index">
+        <span class="list__title" href="#" ui-sref="board({id: $index})">{{list.name}}</span>
+        <a class="icon-trash-empty cardList__remove" ng-click="vm.removeList($index)"></a>
+        <a class="icon-plus cardList__add" ng-click="vm.createCard($index)"></a>
+        <ul class="noMargin"  dnd-list="list.cards"  dnd-inserted="vm.saveCards(event, index, item, $index)">
+          <li class="cards" dnd-draggable="card" dnd-moved="list.cards.splice($index, 1)" ng-repeat="card in list.cards track by $index">
+            <a class="icon-trash-empty card__remove cardList__remove" ng-click="vm.removeCard($parent.$index, $index)"></a>
+            <span class="boardList__link" href="#" ui-sref="board({id: $index})">{{card.name}}</span>
+            <span class="card__desc">{{card.desc}}</span>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="createCard" ng-if="vm.createCardFlag">
+    <div class="vAlign">
+      <a href="javascript:;" class="icon-cancel-circled cardList__remove" ng-click="vm.closeCard()"></a>
+      <form name="createCard" class="createCard__form" ng-submit="vm.addCard(createCard.$valid)" novalidate>
+
+       <!-- NAME -->
+        <div class="form-group">
+          <label>Name of the card</label>
+          <input type="text" name="name" class="form-control" ng-model="vm.name" required>
+        </div>
+
+        <div class="form-group">
+          <label>Description</label>
+          <textarea type="text" name="username" class="form-control" ng-model="vm.desc"></textarea>
+        </div>
+
+        <!-- SUBMIT BUTTON -->
+       <button type="submit" class="button button-primary float-right">Submit</button>
+       <button  class="button button-outline float-right" ng-click="vm.closeCard()">cancel</button>
+
+     </form>
+    </div>
+  </div>
+
+</div>
